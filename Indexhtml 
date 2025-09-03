@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shri Paramhans Enterprises</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&display=swap');
+
+body, html {
+  margin:0; padding:0;
+  font-family:'Poppins',sans-serif;
+  scroll-behavior:smooth;
+  color:white;
+  background: linear-gradient(135deg, #2575fc, #6a11cb, #ff6ec4);
+  background-size:400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+@keyframes gradientBG {
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+.page {
+  min-height:100vh;
+  display:flex; flex-direction:column;
+  justify-content:center; align-items:center;
+  text-align:center;
+  padding:20px;
+  position:relative;
+}
+
+h1{ font-weight:900; margin:20px 0; }
+h2{ margin:20px 0; font-weight:700; }
+
+.box {
+  width:90%; max-width:500px;
+  padding:15px 20px; margin:15px 0;
+  background:rgba(255,255,255,0.05);
+  border-radius:12px;
+  font-weight:600;
+  font-size:1.4em;
+  transition:transform 0.3s, box-shadow 0.3s;
+  position:relative;
+}
+.box:hover{ transform:scale(1.05); box-shadow:0 8px 20px rgba(0,0,0,0.3); }
+
+.price{ font-weight:600; margin-top:8px; }
+
+.contact{ font-weight:bold; font-size:1.6em; margin-top:30px; }
+
+.sparkle{ position:absolute; width:100%; height:100%; top:0; left:0; pointer-events:none; }
+.star{ position:absolute; font-size:1em; animation:sparkleAnim 2s infinite; opacity:0.8; }
+@keyframes sparkleAnim {
+  0%,100%{ transform:translateY(0) scale(1); opacity:0.8; }
+  50%{ transform:translateY(-10px) scale(1.5); opacity:1; }
+}
+
+.nav-btn {
+  position: fixed; bottom: 20px; right: 20px;
+  padding:12px 18px; font-size:1em;
+  border:none; border-radius:8px; cursor:pointer;
+  background:white; color:black; opacity:0.8;
+}
+.nav-btn:hover{ opacity:1; }
+
+#startBtn {
+  position:fixed; top:50%; left:50%;
+  transform:translate(-50%, -50%);
+  padding:15px 25px;
+  font-size:1.2em;
+  cursor:pointer;
+  border:none; border-radius:10px;
+  background:white; color:black;
+  z-index:10;
+}
+</style>
+</head>
+<body>
+
+<button id="startBtn">Click Anywhere To Start Voice</button>
+
+<!-- Page 1 -->
+<div class="page" id="page1">
+  <h1>Welcome To Our Business World</h1>
+  <div class="sparkle">
+    <span class="star" style="top:10%; left:20%;">✨</span>
+    <span class="star" style="top:50%; left:70%;">✨</span>
+    <span class="star" style="top:80%; left:30%;">✨</span>
+  </div>
+</div>
+<button class="nav-btn" onclick="nextPage()">Next Page</button>
+
+<!-- Page 2 -->
+<div class="page" id="page2">
+  <h1>Shri Paramhans</h1>
+  <h1>Enterprises</h1>
+  <div class="sparkle">
+    <span class="star" style="top:15%; left:10%;">✨</span>
+    <span class="star" style="top:40%; left:60%;">✨</span>
+    <span class="star" style="top:70%; left:80%;">✨</span>
+  </div>
+</div>
+<button class="nav-btn" onclick="nextPage()">Next Page</button>
+
+<!-- Page 3: Services -->
+<div class="page" id="page3">
+  <h2>Our Services</h2>
+  <div class="box">- We Deal In <strong>Accounting Software</strong></div>
+  <div class="box">- Tally <strong>Training & Customisation</strong></div>
+  <div class="box">- Tally <strong>Services & Data Repair</strong></div>
+  <div class="box">- Tally <strong>Cloud Services</strong></div>
+</div>
+<button class="nav-btn" onclick="nextPage()">Next Page</button>
+
+<!-- Page 4: Products -->
+<div class="page" id="page4">
+  <h1><strong>OUR PRODUCTS</strong></h1>
+  <div class="box">- TallyPrime <strong>Single User</strong>
+    <div class="price">- 26500/- (GST Included)</div>
+  </div>
+  <div class="box">- TallyPrime <strong>Multi User</strong>
+    <div class="price">- 80000/- (GST Included)</div>
+  </div>
+  <div class="box">- Single User <strong>Renewal</strong>
+    <div class="price">- 5310/- (GST Included)</div>
+  </div>
+  <div class="box">- Multi User <strong>Renewal</strong>
+    <div class="price">- 15930/- (GST Included)</div>
+  </div>
+</div>
+<button class="nav-btn" onclick="nextPage()">Next Page</button>
+
+<!-- Page 5: Thank you -->
+<div class="page" id="page5">
+  <h1>Thank You For Watching</h1>
+  <p class="contact">For More Details Call Us At: 9041902520, 9216963450</p>
+</div>
+<button class="nav-btn" onclick="nextPage()">Next Page</button>
+
+<script>
+let currentPage=1;
+const totalPages=5;
+
+// Page narration texts
+const narrationTexts = [
+  "Welcome to our business world",
+  "Shri Paramhans Enterprises",
+  "Our services: We deal in Accounting Software, Tally Training and Customisation, Tally Services and Data Repair, Tally Cloud Services",
+  "Our products: TallyPrime Single User 26500 rupees GST included, TallyPrime Multi User 80000 rupees GST included, Single User Renewal 5310 rupees GST included, Multi User Renewal 15930 rupees GST included",
+  "Thank you for watching. For more details call us at 9041902520 and 9216963450"
+];
+
+// Speak function
+function speak(text){
+  if('speechSynthesis' in window){
+    let msg = new SpeechSynthesisUtterance();
+    msg.text = text;
+    msg.volume = 1; // max volume
+    msg.rate = 1; // normal speed
+    msg.pitch = 1; // normal pitch
+    window.speechSynthesis.speak(msg);
+  } else {
+    alert("Sorry, your device does not support voice narration.");
+  }
+}
+
+// Start narration
+document.getElementById('startBtn').addEventListener('click', function(){
+  this.style.display='none';
+  speak(narrationTexts[0]);
+});
+
+// Next page
+function nextPage(){
+  currentPage++;
+  if(currentPage>totalPages) currentPage=1;
+  document.getElementById('page'+currentPage).scrollIntoView({behavior:'smooth'});
+  window.speechSynthesis.cancel(); // stop previous narration
+  speak(narrationTexts[currentPage-1]);
+}
+</script>
+
+</body>
+</html>
